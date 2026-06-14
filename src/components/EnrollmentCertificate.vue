@@ -12,9 +12,10 @@ export default {
   methods: {
     async buscar() {
       const response = await axios.get(
-        `https://api.allorigins.win/raw?url=https://sisacad-enrollments-backend.vercel.app/restful/enrollment-certificate/?cui=${this.cui}`
+        `https://api.allorigins.win/get?url=https://sisacad-enrollments-backend.vercel.app/restful/enrollment-certificate/?cui=${this.cui}`
       )
-      this.enrollments = response.data.results
+      const data = JSON.parse(response.data.contents)
+      this.enrollments = data.results
     }
   }
 }
