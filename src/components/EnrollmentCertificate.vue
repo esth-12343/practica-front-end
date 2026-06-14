@@ -12,8 +12,7 @@ export default {
   methods: {
     async buscar() {
       const response = await axios.get(
-        `https://sisacad-enrollments-backend.vercel.app/restful/enrollment-certificate/?cui=${this.cui}`
-      )
+        https://corsproxy.io/?url=https://sisacad-enrollments-backend.vercel.app/restful/enrollment-certificate/?cui=${this.cui}
 
       this.enrollments = response.data.results
     }
