@@ -11,11 +11,16 @@ export default {
 
   methods: {
     async buscar() {
-      const response = await axios.get(
-        /api/restful/enrollment-certificate/
-      )
+      try {
+        const response = await axios.get(
+          `/api/restful/enrollment-certificate/?cui=${this.cui}`
+        )
 
-      this.enrollments = response.data.results
+        this.enrollments = response.data.results
+      } catch (error) {
+        console.error(error)
+        alert('Error al consultar el backend')
+      }
     }
   }
 }
