@@ -12,7 +12,7 @@ export default {
   methods: {
     async buscar() {
       const response = await axios.get(
-        `https://sisacad-enrollments-backend.vercel.app/restful/enrollment-certificate/?cui=${this.cui}`
+        /api/restful/enrollment-certificate/
       )
 
       this.enrollments = response.data.results
