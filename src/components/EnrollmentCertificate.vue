@@ -12,7 +12,8 @@ export default {
   methods: {
     async buscar() {
       const response = await axios.get(
-        https://corsproxy.io/?url=https://sisacad-enrollments-backend.vercel.app/restful/enrollment-certificate/?cui=${this.cui}
+        `https://corsproxy.io/?url=https://sisacad-enrollments-backend.vercel.app/restful/enrollment-certificate/?cui=${this.cui}`
+      )
 
       this.enrollments = response.data.results
     }
@@ -22,7 +23,7 @@ export default {
 
 <template>
   <div>
-    <h1>Constancia de Matrícula</h1>
+    <h1>Constancia de Matricula</h1>
 
     <input v-model="cui" placeholder="Ingrese CUI">
     <button @click="buscar">Buscar</button>
@@ -35,10 +36,10 @@ export default {
       <table border="1">
         <thead>
           <tr>
-            <th>Código</th>
+            <th>Codigo</th>
             <th>Curso</th>
             <th>Docente</th>
-            <th>Créditos</th>
+            <th>Creditos</th>
           </tr>
         </thead>
 
@@ -53,4 +54,4 @@ export default {
       </table>
     </div>
   </div>
-</template> has esto ayudame a cmabia rpar que funion 
+</template>
