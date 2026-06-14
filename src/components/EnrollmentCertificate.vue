@@ -11,16 +11,11 @@ export default {
 
   methods: {
     async buscar() {
-      try {
-        const response = await axios.get(
-          `/api/restful/enrollment-certificate/?cui=${this.cui}`
-        )
+      const response = await axios.get(
+        `https://sisacad-enrollments-backend.vercel.app/restful/enrollment-certificate/?cui=${this.cui}`
+      )
 
-        this.enrollments = response.data.results
-      } catch (error) {
-        console.error(error)
-        alert('Error al consultar el backend')
-      }
+      this.enrollments = response.data.results
     }
   }
 }
@@ -59,4 +54,4 @@ export default {
       </table>
     </div>
   </div>
-</template>
+</template> has esto ayudame a cmabia rpar que funion 
