@@ -12,9 +12,8 @@ export default {
   methods: {
     async buscar() {
       const response = await axios.get(
-        `https://corsproxy.io/?url=https://sisacad-enrollments-backend.vercel.app/restful/enrollment-certificate/?cui=${this.cui}`
+        `https://api.allorigins.win/raw?url=https://sisacad-enrollments-backend.vercel.app/restful/enrollment-certificate/?cui=${this.cui}`
       )
-
       this.enrollments = response.data.results
     }
   }
@@ -24,15 +23,11 @@ export default {
 <template>
   <div>
     <h1>Constancia de Matricula</h1>
-
     <input v-model="cui" placeholder="Ingrese CUI">
     <button @click="buscar">Buscar</button>
-
     <div v-if="enrollments.length">
       <h2>{{ enrollments[0].student.full_name }}</h2>
-
       <p>CUI: {{ enrollments[0].student.cui }}</p>
-
       <table border="1">
         <thead>
           <tr>
@@ -42,7 +37,6 @@ export default {
             <th>Creditos</th>
           </tr>
         </thead>
-
         <tbody>
           <tr v-for="e in enrollments" :key="e.id">
             <td>{{ e.workload.course.code }}</td>
